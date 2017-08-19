@@ -1,0 +1,78 @@
+[
+  {
+    "CountryName": "France",
+    "PowerByCountry": "25544.72"
+  },
+  {
+    "CountryName": "USA",
+    "PowerByCountry": "16663.15"
+  },
+  {
+    "CountryName": "China",
+    "PowerByCountry": "16585"
+  },
+  {
+    "CountryName": "India",
+    "PowerByCountry": "6796.13"
+  },
+  {
+    "CountryName": "Japan",
+    "PowerByCountry": "4694.85"
+  },
+  {
+    "CountryName": "Germany",
+    "PowerByCountry": "3630.15"
+  },
+  {
+    "CountryName": "Russia",
+    "PowerByCountry": "3498.04"
+  },
+  {
+    "CountryName": "Brazil",
+    "PowerByCountry": "3218.2"
+  },
+  {
+    "CountryName": "Indonesia",
+    "PowerByCountry": "2516.06"
+  },
+  {
+    "CountryName": "United Kingdom",
+    "PowerByCountry": "2454.23"
+  },
+  {
+    "CountryName": "Italy",
+    "PowerByCountry": "2109.84"
+  },
+  {
+    "CountryName": "Mexico",
+    "PowerByCountry": "2069.84"
+  },
+  {
+    "CountryName": "Republic of Korea",
+    "PowerByCountry": "1698.88"
+  },
+  {
+    "CountryName": "Canada",
+    "PowerByCountry": "1532.79"
+  },
+  {
+    "CountryName": "Saudi Arabia",
+    "PowerByCountry": "1530.54"
+  },
+  {
+    "CountryName": "Turkey",
+    "PowerByCountry": "1448.17"
+  },
+  {
+    "CountryName": "Australia",
+    "PowerByCountry": "1053.23"
+  },
+  {
+    "CountryName": "Argentina",
+    "PowerByCountry": "931.3"
+  },
+  {
+    "CountryName": "South Africa",
+    "PowerByCountry": "685.22"
+  }
+]

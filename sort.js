@@ -15,7 +15,7 @@ lineReader.on('line', function (line) {
    jsonFromLine.PowerByCountry=lineSplit[23];
 
 
-   if (jsonFromLine.CountryName =='European Union' || jsonFromLine.CountryName =='World') {
+   if (jsonFromLine.CountryName =='European Union' || jsonFromLine.CountryName == 'Country Name' || jsonFromLine.CountryName =='World') {
     }
 else{
     output.push(jsonFromLine);
@@ -36,7 +36,7 @@ output.sort(function(a,b)
 lineReader.on('close', function (line) {
     console.log(output);  
     var json = JSON.stringify(output, null, 2);
-    fs.writeFileSync('1.json',json);
+    fs.writeFileSync('power.json',json);
 });
 
 
@@ -55,7 +55,7 @@ lineReader.on('line', function (line) {
    jsonFromLine1.GDP2013=lineSplit[11];
 
 
-   if (jsonFromLine1.CountryName =='European Union' || jsonFromLine1.CountryName =='World') {
+   if (jsonFromLine1.CountryName =='European Union' || jsonFromLine1.CountryName == 'Country Name' || jsonFromLine1.CountryName =='World') {
     }
 else{
     output1.push(jsonFromLine1);
@@ -76,7 +76,7 @@ output1.sort(function(a,b)
 lineReader.on('close', function (line) {
     console.log(output1);  
  var json = JSON.stringify(output1, null, 2);
-    fs.writeFileSync('2.json',json);
+    fs.writeFileSync('GDP.json',json);
 });
 
 
@@ -92,7 +92,7 @@ lineReader.on('line', function (line) {
    jsonFromLine2.CountryName=lineSplit[0];
    jsonFromLine2.Population2013=lineSplit[5];
 
-if (jsonFromLine2.CountryName =='European Union' || jsonFromLine2.CountryName =='World') {
+if (jsonFromLine2.CountryName =='European Union' || jsonFromLine2.CountryName == 'Country Name' || jsonFromLine2.CountryName =='World') {
     }
 else{
     output2.push(jsonFromLine2);
@@ -113,7 +113,7 @@ output2.sort(function(a,b)
 lineReader.on('close', function (line) {
     console.log(output2);  
     var json = JSON.stringify(output2, null, 2);
-    fs.writeFileSync('3.json',json);
+    fs.writeFileSync('population.json',json);
 });
 
 
