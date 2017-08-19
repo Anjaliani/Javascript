@@ -1,0 +1,78 @@
+[
+  {
+    "CountryName": "Argentina",
+    "PurchasingPowerGrowth": -160.39999999999998
+  },
+  {
+    "CountryName": "Australia",
+    "PurchasingPowerGrowth": -252.25
+  },
+  {
+    "CountryName": "Brazil",
+    "PurchasingPowerGrowth": -181.76000000000022
+  },
+  {
+    "CountryName": "Canada",
+    "PurchasingPowerGrowth": -224.8900000000001
+  },
+  {
+    "CountryName": "China",
+    "PurchasingPowerGrowth": -3451.3
+  },
+  {
+    "CountryName": "France",
+    "PurchasingPowerGrowth": -159.36000000000013
+  },
+  {
+    "CountryName": "Germany",
+    "PurchasingPowerGrowth": -323.02
+  },
+  {
+    "CountryName": "India",
+    "PurchasingPowerGrowth": -166.70000000000005
+  },
+  {
+    "CountryName": "Indonesia",
+    "PurchasingPowerGrowth": -157.24
+  },
+  {
+    "CountryName": "Italy",
+    "PurchasingPowerGrowth": -7.029999999999745
+  },
+  {
+    "CountryName": "Japan",
+    "PurchasingPowerGrowth": 579.1300000000001
+  },
+  {
+    "CountryName": "Mexico",
+    "PurchasingPowerGrowth": -210.7299999999998
+  },
+  {
+    "CountryName": "Russia",
+    "PurchasingPowerGrowth": -554.0999999999999
+  },
+  {
+    "CountryName": "Saudi Arabia",
+    "PurchasingPowerGrowth": -217.5300000000001
+  },
+  {
+    "CountryName": "South Africa",
+    "PurchasingPowerGrowth": 9.060000000000002
+  },
+  {
+    "CountryName": "Republic of Korea",
+    "PurchasingPowerGrowth": -211.1099999999999
+  },
+  {
+    "CountryName": "Turkey",
+    "PurchasingPowerGrowth": -91.5
+  },
+  {
+    "CountryName": "United Kingdom",
+    "PurchasingPowerGrowth": -271.0300000000002
+  },
+  {
+    "CountryName": "USA",
+    "PurchasingPowerGrowth": -1698.7500000000018
+  }
+]
