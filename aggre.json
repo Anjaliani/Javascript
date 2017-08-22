@@ -1,0 +1,86 @@
+[
+  {
+    "continent": "Australia",
+    "population_2010": 22.17,
+    "population_2011": 22.52,
+    "population_2012": 22.92,
+    "population_2013": 23.3
+  },
+  {
+    "continent": "Australia",
+    "GDP2010": 1244.97,
+    "GDP2011": 1499.95,
+    "GDP2012": 1555.26,
+    "GDP2013": 1497.22
+  },
+  {
+    "continent": "European",
+    "population_2010": 341.07,
+    "population_2011": 343.48,
+    "population_2012": 345.57,
+    "population_2013": 347.5
+  },
+  {
+    "continent": "European",
+    "GDP2010": 7315.57,
+    "GDP2011": 8138.2699999999995,
+    "GDP2012": 8111.45,
+    "GDP2013": 8391.56
+  },
+  {
+    "continent": "South America",
+    "population_2010": 236.29,
+    "population_2011": 238.66,
+    "population_2012": 240.97,
+    "population_2013": 243.23000000000002
+  },
+  {
+    "continent": "South America",
+    "GDP2010": 2670.92,
+    "GDP2011": 3171.74,
+    "GDP2012": 3019.62,
+    "GDP2013": 3013.08
+  },
+  {
+    "continent": "Asia",
+    "population_2010": 2978.63,
+    "population_2011": 3012.84,
+    "population_2012": 3049.2799999999997,
+    "population_2013": 3076.4399999999996
+  },
+  {
+    "continent": "Asia",
+    "GDP2010": 15623.300000000001,
+    "GDP2011": 18009.1,
+    "GDP2012": 19130.350000000002,
+    "GDP2013": 19248.05
+  },
+  {
+    "continent": "Africa",
+    "population_2010": 50.79,
+    "population_2011": 51.55,
+    "population_2012": 52.34,
+    "population_2013": 53.16
+  },
+  {
+    "continent": "Africa",
+    "GDP2010": 375.3,
+    "GDP2011": 417.06,
+    "GDP2012": 397.39,
+    "GDP2013": 366.24
+  },
+  {
+    "continent": "North America",
+    "population_2010": 424.05,
+    "population_2011": 427.77,
+    "population_2012": 431.46,
+    "population_2013": 435.14
+  },
+  {
+    "continent": "North America",
+    "GDP2010": 16015.529999999999,
+    "GDP2011": 16689.12,
+    "GDP2012": 17341.85,
+    "GDP2013": 17925.010000000002
+  }
+]
