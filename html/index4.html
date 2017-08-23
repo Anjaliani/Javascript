@@ -1,0 +1,794 @@
+
+
+
+<!DOCTYPE html>
+
+<meta charset="utf-8">
+
+<style>
+
+.axis text {
+
+  font: 10px sans-serif;
+
+}
+
+.axis line,
+
+.axis path {
+
+  fill: none;
+
+  stroke: #000;
+
+  shape-rendering: crispEdges;
+
+}
+
+.axis--x path {
+
+  display: none;
+
+
+
+}
+
+.path-line {
+
+  fill: none;
+
+  stroke: yellow;
+
+  stroke-width: 1.5px;
+
+}
+
+
+
+svg {
+
+  height: 600px;
+
+  background: #f0f0f0;
+
+}
+
+</style>
+
+<body>
+
+<h2>Stacked Bar Chart - Population Growth 2010-2013</h2>
+
+<div id='stacked-bar'></div>
+
+<script src="//d3js.org/d3.v4.min.js"></script>
+
+<script>
+
+var initStackedBarChart = {
+
+  draw: function(config) {
+
+    xData =["PopulationGrowth2010","PopulationGrowth2013"];
+
+    me = this,
+
+    domEle = config.element,
+
+    stackKey = config.key,
+
+    data = config.data,
+
+    margin = {top: 20, right: 20, bottom: 30, left: 50},
+
+    //parseCountryName = d3.timeParse("%m/%Y")
+
+    width = 960- margin.left - margin.right,
+
+    height = 500 - margin.top - margin.bottom,
+
+    xScale = d3.scaleBand().range([0, width]).padding(0.1),
+
+    yScale = d3.scaleLinear().range([height, 0]),
+
+    color = d3.scaleOrdinal(d3.schemeCategory20),
+
+    //xAxis = d3.axisBottom(xScale).tickFormat(d3.timeFormat("%b")),
+
+    xAxis = d3.axisBottom(xScale),
+
+    yAxis =  d3.axisLeft(yScale),
+
+    svg = d3.select("#"+domEle).append("svg")
+
+        .attr("width", width + margin.left + margin.right)
+
+        .attr("height", height + margin.top + margin.bottom)
+
+        .append("g")
+
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+
+
+    var stack = d3.stack()
+
+      .keys(stackKey)
+
+      .order(d3.stackOrderNone)
+
+      .offset(d3.stackOffsetNone);
+
+  
+
+    var layers= stack(data);
+
+      //data.sort(function(a, b) { return b.total - a.total; });
+
+      xScale.domain(data.map(function(d) {return d.CountryName; }));
+
+      yScale.domain([0, 3000]);
+
+
+
+    var layer = svg.selectAll(".layer")
+
+      .data(layers)
+
+      .enter().append("g")
+
+      .attr("class", "layer")
+
+      .style("fill", function(d, i) { return color(i); });
+
+
+
+      layer.selectAll("rect")
+
+        .data(function(d) { return d; })
+
+      .enter().append("rect")
+
+        .attr("x", function(d) { return xScale((d.data.CountryName)); })
+
+        .attr("y", function(d) { return yScale(d[1]); })
+
+        .attr("height", function(d) { return yScale(d[0]) - yScale(d[1]); })
+
+        .attr("width", xScale.bandwidth());
+
+
+
+
+
+
+
+
+
+    svg.append("g")
+
+
+
+     .attr("class", "x axis")
+
+               .attr("transform", "translate(0," + height + ")")
+
+               .call(xAxis)
+
+               .selectAll("text")
+
+               .style("text-anchor", "end")
+
+               .attr("dx", "-1.8em")
+
+               .attr("dy", "-.5em")
+
+               .attr("transform", "rotate(-90)");
+
+//       .attr("class", "axis axis--x")
+
+//       .attr("transform", "translate(0," + (height+5) +")")
+
+//       .call(xAxis)
+
+// .attr("transform","rotate(-90)");
+
+    
+
+      svg.append("g")
+
+      .attr("class", "axis axis--y")
+
+      .attr("transform", "translate(0,0)")
+
+      .call(yAxis); 
+
+
+
+      var legend = svg.selectAll(".legend")
+
+               .data(xData.slice())
+
+               .enter().append("g")
+
+               .attr("class", "legend")
+
+               .attr("transform", function (d, i) { return "translate(-20," + i * 20 + ")"; });            legend.append("rect")
+
+               .attr("x", width - 18)
+
+               .attr("width", 18)
+
+               .attr("height", 18);            
+
+               legend.select("rect").style("fill", function (d, i) {
+
+                   return color(i);
+
+               });            
+
+               legend.append("text")
+
+               .attr("x", width - 24)
+
+               .attr("y", 9)
+
+               .attr("dy", ".35em")
+
+               .style("text-anchor", "end")
+
+               .text(function (d) { return d; });            
+
+  }
+
+}
+
+var data = [
+  {
+    "CountryName": "Argentina",
+    "PopulationGrowth2010": 40.79,
+    "PopulationGrowth2013": 42.2
+  },
+  {
+    "CountryName": "Australia",
+    "PopulationGrowth2010": 22.17,
+    "PopulationGrowth2013": 23.3
+  },
+  {
+    "CountryName": "Brazil",
+    "PopulationGrowth2010": 195.5,
+    "PopulationGrowth2013": 201.03
+  },
+  {
+    "CountryName": "Canada",
+    "PopulationGrowth2010": 33.96,
+    "PopulationGrowth2013": 35.11
+  },
+  {
+    "CountryName": "China",
+    "PopulationGrowth2010": 1340.91,
+    "PopulationGrowth2013": 1360.72
+  },
+  {
+    "CountryName": "France",
+    "PopulationGrowth2010": 62.77,
+    "PopulationGrowth2013": 63.65
+  },
+  {
+    "CountryName": "Germany",
+    "PopulationGrowth2010": 81.75,
+    "PopulationGrowth2013": 80.77
+  },
+  {
+    "CountryName": "India",
+    "PopulationGrowth2010": 1195.06,
+    "PopulationGrowth2013": 1259.35
+  },
+  {
+    "CountryName": "Indonesia",
+    "PopulationGrowth2010": 237.64,
+    "PopulationGrowth2013": 248.82
+  },
+  {
+    "CountryName": "Italy",
+    "PopulationGrowth2010": 59.19,
+    "PopulationGrowth2013": 59.69
+  },
+  {
+    "CountryName": "Japan",
+    "PopulationGrowth2010": 128.05,
+    "PopulationGrowth2013": 127.34
+  },
+  {
+    "CountryName": "Mexico",
+    "PopulationGrowth2010": 114.29,
+    "PopulationGrowth2013": 118.4
+  },
+  {
+    "CountryName": "Russia",
+    "PopulationGrowth2010": 142.9,
+    "PopulationGrowth2013": 143.7
+  },
+  {
+    "CountryName": "Saudi Arabia",
+    "PopulationGrowth2010": 27.56,
+    "PopulationGrowth2013": 29.99
+  },
+  {
+    "CountryName": "South Africa",
+    "PopulationGrowth2010": 50.79,
+    "PopulationGrowth2013": 53.16
+  },
+  {
+    "CountryName": "Republic of Korea",
+    "PopulationGrowth2010": 49.41,
+    "PopulationGrowth2013": 50.22
+  },
+  {
+    "CountryName": "Turkey",
+    "PopulationGrowth2010": 73.14,
+    "PopulationGrowth2013": 76.06
+  },
+  {
+    "CountryName": "United Kingdom",
+    "PopulationGrowth2010": 62.26,
+    "PopulationGrowth2013": 64.09
+  },
+  {
+    "CountryName": "USA",
+    "PopulationGrowth2010": 309.76,
+    "PopulationGrowth2013": 316.74
+  }
+];
+
+var key = ["PopulationGrowth2010","PopulationGrowth2013"];
+
+initStackedBarChart.draw({
+
+  data: data,
+
+  key: key,
+
+  element: 'stacked-bar'
+
+});
+
+</script>
+
+</body>
+
+<style>
+.axis text {
+
+    font: 10px;
+}
+
+.axis line,
+
+.axis path {
+
+    fill: none;
+
+    stroke: #000;
+
+    shape-rendering: crispEdges;
+}
+
+.axis--x path {
+
+    display: none;
+}
+
+.path-line {
+
+    fill: none;
+
+    stroke: yellow;
+
+    stroke-width: 2.5px;
+}
+
+svg {
+  height: 600px;
+    background: #f0f0f0;
+}
+</style>
+
+
+<style>
+
+.axis text {
+
+  font: 10px sans-serif;
+
+}
+
+.axis line,
+
+.axis path {
+
+  fill: none;
+
+  stroke: #000;
+
+  shape-rendering: crispEdges;
+
+}
+
+.axis--x path {
+
+  display: none;
+
+
+
+}
+
+.path-line {
+
+  fill: none;
+
+  stroke: yellow;
+
+  stroke-width: 1.5px;
+
+}
+
+
+
+svg {
+
+  height: 600px;
+
+  background: #f0f0f0;
+
+}
+
+</style>
+
+<body>
+
+<h2>Stacked Bar Chart - Population Growth 2010-2013</h2>
+
+<div id='stacked-bar'></div>
+
+<script src="//d3js.org/d3.v4.min.js"></script>
+
+<script>
+
+var initStackedBarChart = {
+
+  draw: function(config) {
+
+    xData =["PurchasingPowerGrowth2010","PurchasingPowerGrowth2013"];
+
+    me = this,
+
+    domEle = config.element,
+
+    stackKey = config.key,
+
+    data = config.data,
+
+    margin = {top: 20, right: 20, bottom: 30, left: 50},
+
+    //parseCountryName = d3.timeParse("%m/%Y")
+
+    width = 960- margin.left - margin.right,
+
+    height = 500 - margin.top - margin.bottom,
+
+    xScale = d3.scaleBand().range([0, width]).padding(0.1),
+
+    yScale = d3.scaleLinear().range([height, 0]),
+
+    color = d3.scaleOrdinal(d3.schemeCategory20),
+
+    //xAxis = d3.axisBottom(xScale).tickFormat(d3.timeFormat("%b")),
+
+    xAxis = d3.axisBottom(xScale),
+
+    yAxis =  d3.axisLeft(yScale),
+
+    svg = d3.select("#"+domEle).append("svg")
+
+        .attr("width", width + margin.left + margin.right)
+
+        .attr("height", height + margin.top + margin.bottom)
+
+        .append("g")
+
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+
+
+    var stack = d3.stack()
+
+      .keys(stackKey)
+
+      .order(d3.stackOrderNone)
+
+      .offset(d3.stackOffsetNone);
+
+  
+
+    var layers= stack(data);
+
+      //data.sort(function(a, b) { return b.total - a.total; });
+
+      xScale.domain(data.map(function(d) {return d.CountryName; }));
+
+      yScale.domain([0, 35000]);
+
+
+
+    var layer = svg.selectAll(".layer")
+
+      .data(layers)
+
+      .enter().append("g")
+
+      .attr("class", "layer")
+
+      .style("fill", function(d, i) { return color(i); });
+
+
+
+      layer.selectAll("rect")
+
+        .data(function(d) { return d; })
+
+      .enter().append("rect")
+
+        .attr("x", function(d) { return xScale((d.data.CountryName)); })
+
+        .attr("y", function(d) { return yScale(d[1]); })
+
+        .attr("height", function(d) { return yScale(d[0]) - yScale(d[1]); })
+
+        .attr("width", xScale.bandwidth());
+
+
+
+
+
+
+
+
+
+    svg.append("g")
+
+
+
+     .attr("class", "x axis")
+
+               .attr("transform", "translate(0," + height + ")")
+
+               .call(xAxis)
+
+               .selectAll("text")
+
+               .style("text-anchor", "end")
+
+               .attr("dx", "-1.8em")
+
+               .attr("dy", "-.5em")
+
+               .attr("transform", "rotate(-90)");
+
+//       .attr("class", "axis axis--x")
+
+//       .attr("transform", "translate(0," + (height+5) +")")
+
+//       .call(xAxis)
+
+// .attr("transform","rotate(-90)");
+
+    
+
+      svg.append("g")
+
+      .attr("class", "axis axis--y")
+
+      .attr("transform", "translate(0,0)")
+
+      .call(yAxis); 
+
+
+
+      var legend = svg.selectAll(".legend")
+
+               .data(xData.slice())
+
+               .enter().append("g")
+
+               .attr("class", "legend")
+
+               .attr("transform", function (d, i) { return "translate(-20," + i * 20 + ")"; });            legend.append("rect")
+
+               .attr("x", width - 18)
+
+               .attr("width", 18)
+
+               .attr("height", 18);            
+
+               legend.select("rect").style("fill", function (d, i) {
+
+                   return color(i);
+
+               });            
+
+               legend.append("text")
+
+               .attr("x", width - 24)
+
+               .attr("y", 9)
+
+               .attr("dy", ".35em")
+
+               .style("text-anchor", "end")
+
+               .text(function (d) { return d; });            
+
+  }
+
+}
+
+var data =[
+  {
+    "CountryName": "Argentina",
+    "PurchasingPowerGrowth2010": 784.28,
+    "PurchasingPowerGrowth2013": 931.3
+  },
+  {
+    "CountryName": "Australia",
+    "PurchasingPowerGrowth2010": 917.89,
+    "PurchasingPowerGrowth2013": 1053.23
+  },
+  {
+    "CountryName": "Brazil",
+    "PurchasingPowerGrowth2010": 2803.9,
+    "PurchasingPowerGrowth2013": 3218.2
+  },
+  {
+    "CountryName": "Canada",
+    "PurchasingPowerGrowth2010": 1355.51,
+    "PurchasingPowerGrowth2013": 1532.79
+  },
+  {
+    "CountryName": "China",
+    "PurchasingPowerGrowth2010": 12357.02,
+    "PurchasingPowerGrowth2013": 16585
+  },
+  {
+    "CountryName": "France",
+    "PurchasingPowerGrowth2010": 2340.16,
+    "PurchasingPowerGrowth2013": 25544.72
+  },
+  {
+    "CountryName": "Germany",
+    "PurchasingPowerGrowth2010": 3279.68,
+    "PurchasingPowerGrowth2013": 3630.15
+  },
+  {
+    "CountryName": "India",
+    "PurchasingPowerGrowth2010": 5370.62,
+    "PurchasingPowerGrowth2013": 6796.13
+  },
+  {
+    "CountryName": "Indonesia",
+    "PurchasingPowerGrowth2010": 2003.96,
+    "PurchasingPowerGrowth2013": 2516.06
+  },
+  {
+    "CountryName": "Italy",
+    "PurchasingPowerGrowth2010": 2077.42,
+    "PurchasingPowerGrowth2013": 2109.84
+  },
+  {
+    "CountryName": "Japan",
+    "PurchasingPowerGrowth2010": 4319.5,
+    "PurchasingPowerGrowth2013": 4694.85
+  },
+  {
+    "CountryName": "Mexico",
+    "PurchasingPowerGrowth2010": 1785.68,
+    "PurchasingPowerGrowth2013": 2069.84
+  },
+  {
+    "CountryName": "Russia",
+    "PurchasingPowerGrowth2010": 3031.01,
+    "PurchasingPowerGrowth2013": 3498.04
+  },
+  {
+    "CountryName": "Saudi Arabia",
+    "PurchasingPowerGrowth2010": 1217.78,
+    "PurchasingPowerGrowth2013": 1530.54
+  },
+  {
+    "CountryName": "South Africa",
+    "PurchasingPowerGrowth2010": 601.5,
+    "PurchasingPowerGrowth2013": 685.22
+  },
+  {
+    "CountryName": "Republic of Korea",
+    "PurchasingPowerGrowth2010": 1473.65,
+    "PurchasingPowerGrowth2013": 1698.88
+  },
+  {
+    "CountryName": "Turkey",
+    "PurchasingPowerGrowth2010": 1184.4,
+    "PurchasingPowerGrowth2013": 1448.17
+  },
+  {
+    "CountryName": "United Kingdom",
+    "PurchasingPowerGrowth2010": 2233.48,
+    "PurchasingPowerGrowth2013": 2454.23
+  },
+  {
+    "CountryName": "USA",
+    "PurchasingPowerGrowth2010": 14964.4,
+    "PurchasingPowerGrowth2013": 16663.15
+  }
+];
+
+var key = ["PurchasingPowerGrowth2010","PurchasingPowerGrowth2013"];
+
+initStackedBarChart.draw({
+
+  data: data,
+
+  key: key,
+
+  element: 'stacked-bar'
+
+});
+
+</script>
+<form>
+            <a href="index.html" ><input type="button" Value="Purchasing Power in Decreasig Order"></a>
+            <a href="index1.html" ><input type="button" Value="GDP in Decreasig Order"></a>
+            <a href="index2.html" ><input type="button" Value="Population in Decreasing Order"></a>
+            <a href="index4.html" ><input type="button" Value="Growth"></a>
+            <a href="index6.html" ><input type="button" Value="Population Aggregate"></a>
+            <a href="index7.html" ><input type="button" Value="GDP Aggregate"></a>
+         </form>
+
+
+</body>
+
+<style>
+.axis text {
+
+    font: 10px;
+}
+
+.axis line,
+
+.axis path {
+
+    fill: none;
+
+    stroke: #000;
+
+    shape-rendering: crispEdges;
+}
+
+.axis--x path {
+
+    display: none;
+}
+
+.path-line {
+
+    fill: none;
+
+    stroke: yellow;
+
+    stroke-width: 2.5px;
+}
+
+svg {
+  height: 600px;
+    background: #f0f0f0;
+}
+</style>

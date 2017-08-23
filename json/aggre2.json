@@ -1,0 +1,26 @@
+[
+  {
+    "continent": "Australia",
+    "GDP2013": 1497.22
+  },
+  {
+    "continent": "European",
+    "GDP2013": 8391.56
+  },
+  {
+    "continent": "South America",
+    "GDP2013": 3013.08
+  },
+  {
+    "continent": "Asia",
+    "GDP2013": 19248.05
+  },
+  {
+    "continent": "Africa",
+    "GDP2013": 366.24
+  },
+  {
+    "continent": "North America",
+    "GDP2013": 17925.010000000002
+  }
+]

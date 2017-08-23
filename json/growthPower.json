@@ -1,0 +1,97 @@
+[
+  {
+    "CountryName": "Argentina",
+    "PurchasingPowerGrowth2010": 784.28,
+    "PurchasingPowerGrowth2013": 931.3
+  },
+  {
+    "CountryName": "Australia",
+    "PurchasingPowerGrowth2010": 917.89,
+    "PurchasingPowerGrowth2013": 1053.23
+  },
+  {
+    "CountryName": "Brazil",
+    "PurchasingPowerGrowth2010": 2803.9,
+    "PurchasingPowerGrowth2013": 3218.2
+  },
+  {
+    "CountryName": "Canada",
+    "PurchasingPowerGrowth2010": 1355.51,
+    "PurchasingPowerGrowth2013": 1532.79
+  },
+  {
+    "CountryName": "China",
+    "PurchasingPowerGrowth2010": 12357.02,
+    "PurchasingPowerGrowth2013": 16585
+  },
+  {
+    "CountryName": "France",
+    "PurchasingPowerGrowth2010": 2340.16,
+    "PurchasingPowerGrowth2013": 25544.72
+  },
+  {
+    "CountryName": "Germany",
+    "PurchasingPowerGrowth2010": 3279.68,
+    "PurchasingPowerGrowth2013": 3630.15
+  },
+  {
+    "CountryName": "India",
+    "PurchasingPowerGrowth2010": 5370.62,
+    "PurchasingPowerGrowth2013": 6796.13
+  },
+  {
+    "CountryName": "Indonesia",
+    "PurchasingPowerGrowth2010": 2003.96,
+    "PurchasingPowerGrowth2013": 2516.06
+  },
+  {
+    "CountryName": "Italy",
+    "PurchasingPowerGrowth2010": 2077.42,
+    "PurchasingPowerGrowth2013": 2109.84
+  },
+  {
+    "CountryName": "Japan",
+    "PurchasingPowerGrowth2010": 4319.5,
+    "PurchasingPowerGrowth2013": 4694.85
+  },
+  {
+    "CountryName": "Mexico",
+    "PurchasingPowerGrowth2010": 1785.68,
+    "PurchasingPowerGrowth2013": 2069.84
+  },
+  {
+    "CountryName": "Russia",
+    "PurchasingPowerGrowth2010": 3031.01,
+    "PurchasingPowerGrowth2013": 3498.04
+  },
+  {
+    "CountryName": "Saudi Arabia",
+    "PurchasingPowerGrowth2010": 1217.78,
+    "PurchasingPowerGrowth2013": 1530.54
+  },
+  {
+    "CountryName": "South Africa",
+    "PurchasingPowerGrowth2010": 601.5,
+    "PurchasingPowerGrowth2013": 685.22
+  },
+  {
+    "CountryName": "Republic of Korea",
+    "PurchasingPowerGrowth2010": 1473.65,
+    "PurchasingPowerGrowth2013": 1698.88
+  },
+  {
+    "CountryName": "Turkey",
+    "PurchasingPowerGrowth2010": 1184.4,
+    "PurchasingPowerGrowth2013": 1448.17
+  },
+  {
+    "CountryName": "United Kingdom",
+    "PurchasingPowerGrowth2010": 2233.48,
+    "PurchasingPowerGrowth2013": 2454.23
+  },
+  {
+    "CountryName": "USA",
+    "PurchasingPowerGrowth2010": 14964.4,
+    "PurchasingPowerGrowth2013": 16663.15
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "continent": "Australia",
+    "population_2013": 23.3
+  },
+  {
+    "continent": "European",
+    "population_2013": 347.5
+  },
+  {
+    "continent": "South America",
+    "population_2013": 243.23000000000002
+  },
+  {
+    "continent": "Asia",
+    "population_2013": 3076.4399999999996
+  },
+  {
+    "continent": "Africa",
+    "population_2013": 53.16
+  },
+  {
+    "continent": "North America",
+    "population_2013": 435.14
+  }
+]
