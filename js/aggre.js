@@ -1,7 +1,5 @@
         var output = [];
-       
         var output1 = [];
-       
         var obj = {}
         var c = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]
         var g = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]
@@ -45,8 +43,7 @@ for(let i=0;i<1;i++){
                 g[2][i]+=parseFloat(lineSplit[11])
 }
                     jsonLine.Continent="South America";
-
-          }
+                }
                 else if(jsonFromLine.CountryName=='China' || jsonFromLine.CountryName=='India' || jsonFromLine.CountryName=='Indonesia'||jsonFromLine.CountryName=='Japan'||jsonFromLine.CountryName=='Saudi Arabia'||jsonFromLine.CountryName=='Republic of Korea' ) {
 
                 	for(let i=0;i<1;i++){
@@ -56,8 +53,7 @@ for(let i=0;i<1;i++){
                     jsonLine.Continent="Asia";
 
             }
-
-        else if(jsonFromLine.CountryName=='South Africa' ) {
+           else if(jsonFromLine.CountryName=='South Africa' ) {
         	for(let i=0;i<1;i++){
                     c[4][i]+=parseFloat(lineSplit[5])
                 g[4][i]+=parseFloat(lineSplit[11])
@@ -72,35 +68,27 @@ for(let i=0;i<1;i++){
             }
           }
     });
-
-        lineReader.on('close', function (line) {
-        	for(let j=0;j<6;j++)
+         lineReader.on('close', function (line) {
+           	for(let j=0;j<6;j++)
         	{
         		var i=0,k=0
         	obj1 = {
         		continent: arr[j],
         		population_2013: c[j][i++],
-        	
-        	}
+                   }
             obj2 = {
                 continent: arr[j],
                 GDP2013: g[j][k++],
-            
             }
-        	
-        	output.push(obj1);
+            output.push(obj1);
             output1.push(obj2);
-
-        }
+}
             var json = JSON.stringify(output, null, 2);
             console.log(output)
             fs.writeFileSync('aggre1.json',json);
             var json = JSON.stringify(output1, null, 2);
             console.log(output1)
             fs.writeFileSync('aggre2.json',json);
-
-
-
-        });
+});
 
 
